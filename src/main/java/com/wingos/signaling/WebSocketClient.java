@@ -12,8 +12,8 @@ import java.net.URI;
  * WebSocket客户端封装
  * 用于服务端和客户端连接到独立信令服务器
  */
-public class WebSocketClient extends WebSocketClient {
-    private static final Logger logger = LoggerFactory.getLogger(WebSocketClient.class);
+public class SignalingWebSocketClient extends WebSocketClient {
+    private static final Logger logger = LoggerFactory.getLogger(SignalingWebSocketClient.class);
     
     private final MessageHandler messageHandler;
     private volatile boolean connected = false;
@@ -27,7 +27,7 @@ public class WebSocketClient extends WebSocketClient {
         void onError(String error);
     }
     
-    public WebSocketClient(URI serverUri, MessageHandler messageHandler) {
+    public SignalingWebSocketClient(URI serverUri, MessageHandler messageHandler) {
         super(serverUri);
         this.messageHandler = messageHandler;
         setConnectionLostTimeout(60);
